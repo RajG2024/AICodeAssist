@@ -1,0 +1,3 @@
+This program is designed to verify and display the order amount for a specific order ID, ensuring it belongs to the current year. If the valid order is found, the amount is shown. Otherwise, an appropriate message is displayed. The 'ORDERPF' file is used to store and access order records.
+
+This helps in efficient order management and customer service by quickly providing relevant order information.

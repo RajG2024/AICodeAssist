@@ -1,0 +1,40 @@
+**free
+
+dcl-ds StuDtlDs ExtName('STUDMASTR') qualified;
+end-ds;
+
+Exec sql set option commit = *none;
+
+//Declare cursor to fetch data of students where age > 25
+Exec sql
+  Declare FetchStudDetails Cursor For
+  select * from STUDMASTR Where Age > 25;
+
+Exec sql open FetchStudDetails;
+
+Exec sql
+  Fetch from FetchStudDetails into :StuDtlDs;
+
+//Fetch records from STUDMASTR in loop
+Dow sqlcode = 0;
+
+  //Display student details fetched
+  Dsply StuDtlDs.Studid;
+  Dsply StuDtlDs.StudFirstName;
+  Dsply StuDtlDs.StudLastName;
+  Dsply StuDtlDs.StudAge;
+
+  // Insert the record in STUDMSTOUT
+  Exec sql
+    Insert into STUDMSTOUT values (:StuDtlDs);
+
+  Exec sql
+    Fetch from FetchStudDetails into :StuDtlDs;
+
+Enddo;
+
+// Close the FetchStudDetails cursor
+Exec sql close FetchStudDetails;
+
+// Turn on the last record indicator
+*inlr = *on;

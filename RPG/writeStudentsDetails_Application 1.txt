@@ -1,0 +1,5 @@
+This RPGLE code is designed to manage student data by retrieving records of students older than 25 from the 'STUDMASTR' file. 
+
+It transfers these records to the 'STUDMSTOUT' file. The purpose of the 'STUDMASTR' file is to store comprehensive student information, while the 'STUDMSTOUT' file is used to collect and organize records of students meeting the age criteria (> 25) for further processing, analysis, and reporting. 
+
+This helps in efficiently managing and filtering student data based on specific business requirements.

@@ -1,0 +1,43 @@
+**free
+
+Ctl-Opt DftActGrp(*No);
+
+Dcl-Pi GETPRICTYP;
+ inPgmItemNo Zoned(5:0);
+End-Pi;
+
+Dcl-F ProductPf Disk Usage(*Input) Keyed;
+
+  Dcl-S wkType     Char(1);
+  Dcl-S wkPrice    Zoned(10:0);
+
+//Main Logic
+GetPriceAndType(inPgmItemNo: wkType: wkPrice);
+
+Dsply wkType;
+Dsply wkPrice;
+
+*Inlr = *On;
+
+//------------------------------------------------------------------------
+//GetPriceAndType - Get the Type and Price Details based on selected Item Number.
+//------------------------------------------------------------------------
+Dcl-Proc GetPriceAndType;
+
+  Dcl-PI GetPriceAndType;
+    inItemNo        Zoned(5:0);
+    inType          Char(1);
+    inPrice         Zoned(10:0);
+  End-PI;
+
+Chain inItemNo ProductPf;
+
+If %found();
+  inPrice = Price;
+  inType = Type;
+Else;
+  inPrice = 0;
+  inType = *blanks;
+Endif;
+
+End-Proc;

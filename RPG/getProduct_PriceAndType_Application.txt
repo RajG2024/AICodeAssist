@@ -1,0 +1,6 @@
+This RPGLE code is designed to retrieve and display the type and price of a product based on a given item number. 
+The 'PRODUCTPF' file is used to store product information, including type and price details. 
+
+The code fetches the relevant data from this file, ensuring that accurate product information is available for business operations such as inventory management, pricing analysis, or customer inquiries. 
+
+This helps in maintaining up-to-date and accessible product data.
